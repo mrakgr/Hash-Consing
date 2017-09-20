@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <None Include="App.config" />
-    <None Include="readme.md" />
     <None Include="hashcons.fsx" />
   </ItemGroup>
   <ItemGroup>
