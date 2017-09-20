@@ -57,6 +57,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="App.config" />
     <None Include="hashcons.fsx" />
+    <None Include="Script1.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
