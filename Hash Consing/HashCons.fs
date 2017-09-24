@@ -189,7 +189,7 @@ module Set =
         The first branching bit is the bit 0 (and the corresponding prefix
         is [0b0], not of use here), with {4} on the left and {1,5} on the
         right. Then the right subtree branches on bit 2 (and so has a branching
-        value of 2^2 = 4), with prefix [0b1 = 1]. *)
+        value of 2^2 = 4), with prefix [0b01 = 1]. *)
 
     (*  Empty set and singletons. *)
 
@@ -305,7 +305,6 @@ module Set =
                 join (p, s, q, t)
 
     let union s t = merge (s,t)
-
 
     (*  When checking if [s1] is a subset of [s2] only two of the above
         four cases are relevant: when the prefixes are the same and when the
