@@ -167,7 +167,7 @@ module Set =
 
     (*  The idea behind Patricia trees is to build a trie on the
         binary digits of the elements, and to compact the representation
-        by branching only one the relevant bits (i.e. the ones for which
+        by branching only on the relevant bits (i.e. the ones for which
         there is at least on element in each subtree). We implement here
         little-endian Patricia trees: bits are processed from
         least-significant to most-significant. The trie is implemented by
