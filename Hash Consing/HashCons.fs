@@ -38,6 +38,8 @@ type HashConsTable<'a> =
     mutable limit: int
     }
 
+    override x.Finalize() = if x.table.[0].[0].IsAllocated then x.table |> (Array.iter << Seq.iter) (fun x -> x.Free())
+
 let hashcons_create i = {table = Array.init (max 7 i) (fun _ -> ResizeArray(0)); total_size=0; limit=3}
 let hashcons_add (t: HashConsTable<'a>) (x: 'a) =
     let hashcons_resize (t: HashConsTable<'a>) =
