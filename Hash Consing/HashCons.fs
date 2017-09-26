@@ -36,11 +36,15 @@ type HashConsTable<'a> =
     mutable table: ResizeArray<GCHandle> []
     mutable total_size: int
     mutable limit: int
+    mutable is_finalized: bool
     }
 
-    override x.Finalize() = if x.table.[0].[0].IsAllocated then x.table |> (Array.iter << Seq.iter) (fun x -> x.Free())
+    override x.Finalize() =
+        if x.is_finalized = false then
+            x.table |> (Array.iter << Seq.iter) (fun x -> x.Free())
+            x.is_finalized <- true
 
-let hashcons_create i = {table = Array.init (max 7 i) (fun _ -> ResizeArray(0)); total_size=0; limit=3}
+let hashcons_create i = {table = Array.init (max 7 i) (fun _ -> ResizeArray(0)); total_size=0; limit=3; is_finalized=false}
 let hashcons_add (t: HashConsTable<'a>) (x: 'a) =
     let hashcons_resize (t: HashConsTable<'a>) =
         let next_table_length x = x*3/2+3
