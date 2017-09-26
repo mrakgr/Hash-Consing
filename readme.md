@@ -1,1 +1,1 @@
-A port of the [OCaml hash consing](https://github.com/backtracking/ocaml-hashcons) library.
+A port of table based on the one in the [OCaml hash consing](https://github.com/backtracking/ocaml-hashcons) library.
